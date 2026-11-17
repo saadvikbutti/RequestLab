@@ -22,7 +22,20 @@
                 <section class="request_builder">
                     <h2>Build a Request</h2>
                     <p>Configure and send HTTP requests.</p>
-                    <div></div>
+                    <div class="">
+                        <select class="req_dropdown">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">PUT</option>
+                            <option value="DELETE">DELETE</option>
+                        </select>
+
+                        <input type="text" placeholder="Enter the URL...">
+
+                        <button class="send_req">
+                            Send Request
+                        </button>
+                    </div>
                 </section>
             
                 <section class="response_viewer">
