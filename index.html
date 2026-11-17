@@ -22,7 +22,7 @@
                 <section class="request_builder">
                     <h2>Build a Request</h2>
                     <p>Configure and send HTTP requests.</p>
-                    <div class="">
+                    <div class="request_controls">
                         <select class="req_dropdown">
                             <option value="GET">GET</option>
                             <option value="POST">POST</option>
@@ -30,11 +30,23 @@
                             <option value="DELETE">DELETE</option>
                         </select>
 
-                        <input type="text" placeholder="Enter the URL...">
+                        <input type="url" placeholder="Enter the URL...">
 
                         <button class="send_req">
                             Send Request
                         </button>
+
+                        <div class="headers">
+                            <h3>Headers</h3>
+
+                            <div class="header_inputs">
+                                <input type="text" placeholder="Header name">
+                                <input type="text" placeholder="Header value">
+                                <button>Add Header</button>
+                            </div>
+
+                            <div class="header_list"></div>
+                        </div>
                     </div>
                 </section>
             

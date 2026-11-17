@@ -29,3 +29,178 @@ p {
     line-height: 1.7;
     max-width: 650px;
 }
+
+/* BRAND */
+
+.brand {
+    margin-bottom: 48px;
+}
+
+.brand h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+
+/* WORKSPACE */
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 24px;
+    align-items: start;
+}
+
+.main_panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* SECTIONS */
+
+.request_builder,
+.response_viewer,
+.request_history {
+    background-color: #161B22;
+    border: 1px solid #30363D;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.request_builder h2,
+.response_viewer h2,
+.request_history h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.request_builder > p,
+.response_viewer > p,
+.request_history > p {
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+
+/* REQUEST BUILDER */
+
+.req_dropdown,
+.request_builder input {
+    background-color: #21262D;
+    border: 1px solid #30363D;
+    border-radius: 7px;
+    padding: 12px;
+    color: #E6EDF3;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.req_dropdown {
+    cursor: pointer;
+}
+
+.request_builder > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.request_builder > div > input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.req_dropdown:focus,
+.request_builder input:focus {
+    border-color: #2F81F7;
+}
+
+
+/* BUTTONS */
+
+.send_req,
+.header_inputs button {
+    background-color: #2F81F7;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.send_req:hover,
+.header_inputs button:hover {
+    background-color: #1F6FEB;
+}
+
+
+/* HEADERS */
+
+.headers {
+    flex-basis: 100%;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #30363D;
+}
+
+.headers h3 {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.header_inputs {
+    display: flex;
+    gap: 12px;
+}
+
+.header_inputs input {
+    flex: 1;
+    min-width: 0;
+}
+
+.header_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+
+/* RESPONSE */
+
+.response_viewer {
+    min-height: 280px;
+}
+
+
+/* SIDEBAR */
+
+.request_history {
+    min-height: 300px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    main {
+        padding: 40px 16px;
+    }
+
+    .header_inputs {
+        flex-direction: column;
+    }
+}
