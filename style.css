@@ -152,6 +152,10 @@ p {
     cursor: pointer;
 }
 
+.copy_btn:hover{
+    background-color: #1F6FEB;
+
+}
 /* HEADERS */
 
 .headers {
