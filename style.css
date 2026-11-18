@@ -12,7 +12,7 @@ body {
 }
 
 main {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 80px 24px;
 }
@@ -106,12 +106,14 @@ p {
 .request_builder > div {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    column-gap: 12px;
+    row-gap: 4px;
 }
 
 .request_builder > div > input {
     flex: 1;
     min-width: 180px;
+    padding: 12px 16px;
 }
 
 .req_dropdown:focus,
@@ -140,7 +142,7 @@ p {
     background-color: #1F6FEB;
 }
 
-.copy_btn{
+.clear_btn{
     background-color: #2F81F7;
     color: white;
     border: none;
@@ -152,7 +154,13 @@ p {
     cursor: pointer;
 }
 
-.copy_btn:hover{
+.send_req,
+.clear_btn {
+    padding: 10px 14px;
+    flex-shrink: 0;
+}
+
+.clear_btn:hover{
     background-color: #1F6FEB;
 
 }
@@ -160,8 +168,8 @@ p {
 
 .headers {
     flex-basis: 100%;
-    margin-top: 24px;
-    padding-top: 24px;
+    margin-top: 8px;
+    padding-top: 16px;
     border-top: 1px solid #30363D;
 }
 
@@ -227,4 +235,10 @@ p {
     overflow-wrap: anywhere;
     overflow-x: auto;
     line-height: 1.6;
+}
+
+/* Copy Feedback paragraph font size */
+.copy_feedback {
+    font-size: 14px;
+    flex: 0 0 100%;
 }

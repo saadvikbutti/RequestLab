@@ -1,18 +1,23 @@
-//copy logic 
-
-let copy = document.querySelector(".copy_btn");
+// clear Logic
+let clearButton = document.querySelector(".clear_btn")
 let input = document.querySelector(".url_input")
-copy.addEventListener("click", function(){
+
+clearButton.addEventListener("click", function(){
+    input.textContent = ""
+})
+
+//click to copy logic
+input.addEventListener("click", function(){
     let text = input.value.trim()
     if(text === ""){
         return;
     }
 
     else{
+        input.select()
         navigator.clipboard.writeText(text);
     }
 })
-
 
 //send request logic
 let sendRequestButton = document.querySelector(".send_req")
