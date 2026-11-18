@@ -219,3 +219,12 @@ p {
         flex-direction: column;
     }
 }
+
+/* Response view presentation */
+.response_output {
+    white-space: pre-wrap;
+    font-family: monospace;
+    overflow-wrap: anywhere;
+    overflow-x: auto;
+    line-height: 1.6;
+}
