@@ -140,6 +140,17 @@ p {
     background-color: #1F6FEB;
 }
 
+.copy_btn{
+    background-color: #2F81F7;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 /* HEADERS */
 
