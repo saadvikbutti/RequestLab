@@ -91,6 +91,24 @@ async function sendRequest(){
     }
 }
 
+//headers logic
+let addHeader = document.querySelector(".add_header");
+let headerName = document.querySelector(".header_name")
+let headerValue = document.querySelector(".header_value")
+let headerList = document.querySelector(".header_list");
+let headers = {};
+
+addHeader.addEventListener("click", function(){
+    headers[headerName.value] = headerValue.value;
+
+    let hloutput = document.createElement("div")
+    hloutput.textContent = headerName.value +  ": "  +headerValue.value 
+    headerList.appendChild(hloutput)
+
+    headerName.value = "";
+    headerValue.value = "";
+})
+
 sendRequestButton.addEventListener("click", function(){
     sendRequest();
 })
