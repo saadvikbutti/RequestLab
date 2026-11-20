@@ -96,14 +96,24 @@ let addHeader = document.querySelector(".add_header");
 let headerName = document.querySelector(".header_name")
 let headerValue = document.querySelector(".header_value")
 let headerList = document.querySelector(".header_list");
+
 let headers = {};
 
 addHeader.addEventListener("click", function(){
     headers[headerName.value] = headerValue.value;
 
     let hloutput = document.createElement("div")
+    let removeButton = document.createElement("button")
+    let currentHeaderName = headerName.value;
+    removeButton.textContent = "Remove"
+    removeButton.addEventListener("click", function(){
+        hloutput.remove()
+        delete headers[currentHeaderName]
+    })
     hloutput.textContent = headerName.value +  ": "  +headerValue.value 
+    hloutput.appendChild(removeButton)
     headerList.appendChild(hloutput)
+    
 
     headerName.value = "";
     headerValue.value = "";
