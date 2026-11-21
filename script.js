@@ -105,6 +105,9 @@ let headerList = document.querySelector(".header_list");
 let headers = {};
 
 addHeader.addEventListener("click", function(){
+    if(text === ""){
+        return;
+    }
     headers[headerName.value] = headerValue.value;
 
     let hloutput = document.createElement("div")
