@@ -53,6 +53,11 @@ async function sendRequest(){
             data = JSON.parse(reqBody.value);
         }
 
+        if (input.value.trim() === "") {
+            output.textContent = "Please enter a URL";
+            return;
+        }
+
         let response = await fetch(input.value, {
             method: dropdown.value,
             headers: {
