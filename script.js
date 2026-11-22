@@ -105,10 +105,13 @@ let headerList = document.querySelector(".header_list");
 let headers = {};
 
 addHeader.addEventListener("click", function(){
-    if(text === ""){
+    let text = headerName.value.trim()
+    let value = headerValue.value.trim()
+
+    if(text === "" || value === ""){
         return;
     }
-    headers[headerName.value] = headerValue.value;
+    headers[text] = value;
 
     let hloutput = document.createElement("div")
     let removeButton = document.createElement("button")
