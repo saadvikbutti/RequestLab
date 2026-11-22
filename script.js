@@ -61,7 +61,8 @@ async function sendRequest(){
         let response = await fetch(input.value, {
             method: dropdown.value,
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                ...headers
             },
             body: data !== undefined
                 ? JSON.stringify(data)
