@@ -68,6 +68,7 @@ async function sendRequest() {
 
         startTime = performance.now();
 
+
         let data;
 
         // Parse request body for POST and PUT
@@ -88,6 +89,8 @@ async function sendRequest() {
             requestHeaders["Content-Type"] = "application/json";
         }
 
+        saveToHistory();
+        renderHistory();
         // Send HTTP request
         let response = await fetch(input.value, {
             method: dropdown.value,
@@ -265,9 +268,87 @@ addHeader.addEventListener("click", function () {
 
 });
 
-//send button event
-sendRequestButton.addEventListener("click", function () {
+//history logic
+let history = [];
 
-    sendRequest();
+function saveToHistory() {
+
+    let requestHistory = {
+        id: Date.now(),
+        method: dropdown.value,
+        url: input.value,
+        timestamp: new Date().toLocaleString()
+    };
+
+    history.push(requestHistory);
+
+    localStorage.setItem("requestHistory", JSON.stringify(history));
+
+}
+
+function loadHistory(){
+    let savedHistory = localStorage.getItem("requestHistory");
+    if (savedHistory !== null) {
+        history = JSON.parse(savedHistory);
+    }
+
+}
+
+function renderHistory() {
+
+    //Select the history container
+    let historyContainer = document.querySelector(".request_history");
+
+    //Clear its existing contents
+    historyContainer.textContent = "";
+
+    //Loop through the history array
+    history.forEach(function(request) {
+        let historyItem = document.createElement("div");
+        historyItem.textContent = `
+            ${request.method}
+            ${request.url}
+            ${request.timestamp}
+        `;
+        let restoreButton = document.createElement("button");
+        restoreButton.textContent = "Restore";
+        restoreButton.addEventListener("click", function(){
+            dropdown.value = request.method
+            input.value = request.url
+        })
+
+        let removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", function(){
+            history = history.filter(function(item) {
+                return item.id !== request.id;
+            });
+
+            localStorage.setItem("requestHistory", JSON.stringify(history));
+            renderHistory();
+        })
+
+        historyItem.appendChild(restoreButton);
+        historyItem.appendChild(removeButton);
+        historyContainer.appendChild(historyItem)
+    });
+}
+
+// clear all button in history
+let clearHistoryButton = document.querySelector(".clear_history");
+
+clearHistoryButton.addEventListener("click", function () {
+    history = [];
+    localStorage.removeItem("requestHistory");
+    renderHistory();
 
 });
+
+
+//send button event
+sendRequestButton.addEventListener("click", function () {
+    sendRequest();
+});
+
+loadHistory();
+renderHistory();

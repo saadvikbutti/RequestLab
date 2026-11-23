@@ -63,7 +63,7 @@ p {
 
 .request_builder,
 .response_viewer,
-.request_history {
+.history_section {
     background-color: #161B22;
     border: 1px solid #30363D;
     border-radius: 12px;
@@ -72,14 +72,14 @@ p {
 
 .request_builder h2,
 .response_viewer h2,
-.request_history h2 {
+.history_section h2 {
     font-size: 19px;
     margin-bottom: 8px;
 }
 
 .request_builder > p,
 .response_viewer > p,
-.request_history > p {
+.history_section > p {
     font-size: 14px;
     margin-bottom: 24px;
 }
@@ -205,8 +205,36 @@ p {
 
 /* SIDEBAR */
 
-.request_history {
+.history_section {
     min-height: 300px;
+}
+
+.request_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.request_header h2 {
+    margin-bottom: 0;
+}
+
+.clear_history {
+    background-color: #2F81F7;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.request_history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 
