@@ -1,8 +1,4 @@
-
-/* =================================
-   CLEAR ALL LOGIC
-================================= */
-
+//clear all logic
 let clearButton = document.querySelector(".clear_btn");
 let input = document.querySelector(".url_input");
 
@@ -27,10 +23,7 @@ clearButton.addEventListener("click", function () {
 
 });
 
-
-/* =================================
-   CLICK TO COPY URL
-================================= */
+// clickto copy url
 
 input.addEventListener("click", function () {
 
@@ -46,9 +39,7 @@ input.addEventListener("click", function () {
 });
 
 
-/* =================================
-   REQUEST BUILDER
-================================= */
+// request Builder
 
 let dropdown = document.querySelector(".req_dropdown");
 let reqBody = document.querySelector(".request_body");
@@ -56,9 +47,7 @@ let reqBody = document.querySelector(".request_body");
 let sendRequestButton = document.querySelector(".send_req");
 
 
-/* =================================
-   SEND REQUEST LOGIC
-================================= */
+//send request Logic
 
 async function sendRequest() {
 
@@ -111,16 +100,52 @@ async function sendRequest() {
         endTime = performance.now();
 
         statusOutput.textContent = `Status: ${response.status}`;
+        // Detect response content type
+        let contentType = response.headers.get("content-type") || "";
+        contentType = contentType.toLowerCase();
 
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
+        if (response.status === 204) {
+            output.textContent = "No Content";
         }
 
-        // Read JSON response
-        let responseData = await response.json();
+        else if (contentType.includes("application/json")) {
+            // JSON handling
+            let responseData = await response.json();
+            output.textContent = JSON.stringify(responseData, null, 2);
+        }
 
-        output.textContent = JSON.stringify(responseData, null, 2);
+        else if (contentType.startsWith("text/")) {
+            // Text handling
+            let responseData = await response.text();
+            output.textContent = responseData;
+        }
 
+        else if(contentType.startsWith("application/xml")){
+            // xml 
+            let responseData = await response.text();
+            output.textContent = responseData;
+        }
+
+        else if(contentType.startsWith("application/pdf")){
+            output.textContent = "PDF format is not supported yet!";
+        }
+
+        else if (contentType.startsWith("image/")) {
+            output.textContent = "Image preview is not supported yet!";
+        }
+
+        else if (contentType.startsWith("audio/")) {
+            output.textContent = "Audio preview is not supported yet!";
+        }
+
+        else if (contentType.startsWith("video/")) {
+            output.textContent = "Video preview is not supported yet!";
+        }
+
+        else{
+            output.textContent = "Unsupported Format"
+        }
+        
     }
 
     catch (error) {
