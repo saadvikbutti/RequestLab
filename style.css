@@ -47,7 +47,7 @@ p {
 
 .workspace {
     display: grid;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr 400px;
     gap: 24px;
     align-items: start;
 }
@@ -207,6 +207,7 @@ p {
 
 .history_section {
     min-height: 300px;
+    min-width: 0;
 }
 
 .request_header {
@@ -228,15 +229,67 @@ p {
     padding: 9px 12px;
     font-family: inherit;
     cursor: pointer;
-    margin-bottom: 16px;
+    margin-bottom: 0;
 }
+
+.clear_history:hover {
+    background-color: #1F6FEB;
+}
+
+/* HISTORY LIST */
 
 .request_history {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    min-width: 0;
 }
 
+.request_history > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    background-color: #0D1117;
+    border: 1px solid #30363D;
+    border-radius: 8px;
+    padding: 12px;
+
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+
+.request_history > div button {
+    display: inline-block;
+}
+
+.request_history button {
+    background-color: #21262D;
+    color: #E6EDF3;
+    border: 1px solid #30363D;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.request_history button:hover {
+    background-color: #30363D;
+}
+
+.request_history button:first-of-type {
+    background-color: #2F81F7;
+    border-color: #2F81F7;
+}
+
+.request_history button:first-of-type:hover {
+    background-color: #1F6FEB;
+}
 
 /* RESPONSIVE */
 
@@ -329,4 +382,15 @@ p {
     background-color: #0D1117;
     border: 1px solid #30363D;
     border-radius: 8px;
+}
+
+.history_actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.history_actions button {
+    margin: 0;
 }

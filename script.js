@@ -328,8 +328,17 @@ function renderHistory() {
             renderHistory();
         })
 
-        historyItem.appendChild(restoreButton);
-        historyItem.appendChild(removeButton);
+        // Create a container for both buttons
+        let buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("history_actions");
+
+        // Put both buttons inside the container
+        buttonContainer.appendChild(restoreButton);
+        buttonContainer.appendChild(removeButton);
+
+        // Add the container to the history item
+        historyItem.appendChild(buttonContainer);
+        
         historyContainer.appendChild(historyItem)
     });
 }
