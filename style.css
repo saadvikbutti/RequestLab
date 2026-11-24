@@ -47,7 +47,7 @@ p {
 
 .workspace {
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 450px;
     gap: 24px;
     align-items: start;
 }
